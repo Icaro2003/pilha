@@ -15,5 +15,6 @@ int pilhaVazia(No *topo);
 void imprimirPilha(No *topo);
 void pressioneParaContinuar();
 int lerNum();
+void imprimirNum(No *topo);
 
 #endif

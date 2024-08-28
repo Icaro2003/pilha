@@ -33,7 +33,7 @@ int main()
             break;
         case 3:
             topo = topoPilha(topo);
-            printf("%d\n", topo->num);
+            imprimirNum(topo);
             pressioneParaContinuar();
             break;
         case 4:

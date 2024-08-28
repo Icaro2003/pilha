@@ -6,7 +6,7 @@ No *empilhar(No *topo)
 {
     No *novo = (No *)malloc(sizeof(No));
 
-    if (novo == NULL)
+    if (pilhaVazia(novo))
     {
         printf("Erro ao alocar memória!\n");
         return NULL;
@@ -20,7 +20,7 @@ No *empilhar(No *topo)
 
 No *desempilhar(No **topo)
 {
-    if (*topo == NULL)
+    if (pilhaVazia(*topo))
     {
         printf("Pilha vazia, não é possível desempilhar!\n");
         return NULL;
@@ -34,11 +34,23 @@ No *desempilhar(No **topo)
 
 No *topoPilha(No *topo)
 {
+    if (pilhaVazia(topo))
+    {
+        printf("Pilha vazia, não é possível retornar o topo!\n");
+        return NULL;
+    }
+    
     return topo;
 }
 
 int tamanhoPilha(No *topo)
 {
+    if (pilhaVazia(topo))
+    {
+        printf("Pilha vazia, não é possível retornar tamanho!\n");
+        return -1;
+    }
+
     No *aux = topo;
     int tam = 0;
 
@@ -58,6 +70,13 @@ int pilhaVazia(No *topo)
 
 void imprimirPilha(No *topo)
 {
+    if (pilhaVazia(topo))
+    {
+        printf("Pilha vazia, não é possível imprimir!\n");
+        return;
+    }
+    
+
     No *aux = topo;
 
     while (aux != NULL)
@@ -75,6 +94,17 @@ int lerNum()
     scanf("%d", &num);
 
     return num;
+}
+
+void imprimirNum(No *topo)
+{
+    if (pilhaVazia(topo))
+    {
+        printf("Pilha vazia, não é possível imprimir o valor!\n");
+        return;
+    }
+    
+    printf("%d\n", topo->num);
 }
 
 void pressioneParaContinuar()
